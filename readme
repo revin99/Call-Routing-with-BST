@@ -1,0 +1,25 @@
+Call routing problem using Binary Search Tree
+
+Key points :-
+
+1. Central Server(ROOT) and all it's base stations are predefined. i.e The tree structure is hardcoded and made balanced
+2. Every base station is identified with an ID number
+3. Every leaf-level base station has a corresponding array of entries of phone number stored in sorted order(stored as string val).
+4. All parent base-station have 2-arrays, one storing it's left child's. array of entries and one for it's right child's.
+5. Leaf-level base station has only 1-array filled, as opposed to all parent base-stations
+
+
+Functioning :-
+1.isEmpty() -> 
+2.isMember(ph number) -> checks for existence of phone number in that base station
+3.Insert(phnumber,base leaf-station) -> Inserts mobile phone number into tree in the given base station in sorted order
+                                     -> All it's parents leaf station must also insert the number in sorted order
+4.Delete(phnumber) -> Finds the leaf-station where phnumber exists, returns false if not found.
+                   -> if found, deletes the corresponding entry and makes the array sorted. This is then reflected onto all the 
+                      parent nodes as well
+5.Residentset(base station) -> returns the set of phnumber entries stored under this node.
+6.Findphone(phnumber) -> returns the level 0 base station which contains the phnumber
+7.LCA(base a,base b) -> returns the lowest common ancestor of level 0 base stations 
+8.routeCall(phnumebr a,phnumber b) -> returns shortest path from phnumber a to phnumber b
+9.movephone(phnumber a,base e) -> modifies entry of base containing phnumber a to delete the number and insert in base e.
+                               -> makes use of method 3&4.
